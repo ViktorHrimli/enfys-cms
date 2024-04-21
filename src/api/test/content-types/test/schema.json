@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "TEST"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "awdawd": {
+      "type": "string"
+    },
+    "dede": {
+      "type": "boolean"
+    }
+  }
+}
