@@ -4,18 +4,113 @@
   "info": {
     "singularName": "test",
     "pluralName": "tests",
-    "displayName": "TEST"
+    "displayName": "CARDS",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "awdawd": {
+    "title": {
       "type": "string"
     },
-    "dede": {
-      "type": "boolean"
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "articl": {
+      "type": "string",
+      "required": true
+    },
+    "inStock": {
+      "type": "enumeration",
+      "enum": [
+        "в наявності",
+        "немає в наявності",
+        "очікуємо"
+      ],
+      "required": true,
+      "default": "в наявності"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "УНІВЕРСАЛЬНІ КОЛЯСКИ",
+        "ПРОГУЛЯНКОВІ КОЛЯСКИ",
+        "АВТОКРІСЛА",
+        "КОЛЯСКИ ДЛЯ ДВІЙНІ",
+        "ЛІЖЕЧКА",
+        "КОМОДИ-ПЕЛЕНАТОРИ",
+        "КРІСЛА-ГОЙДАЛКИ",
+        "МАНЕЖИ",
+        "СТІЛЬЧИКИ ДЛЯ ГОДУВАННЯ",
+        "ДОЩОВИКИ",
+        "МОСКІТНІ СІТКИ",
+        "СУМКИ ТА ТЕРМОСУМКИ",
+        "КОНВЕРТИ",
+        "МУФТИ",
+        "ВЕЛОСИПЕДИ І САМОКАТИ",
+        "ДИТЯЧІ ЕЛЕКТРОМОБІЛІ",
+        "БЕГОВЕЛИ",
+        "ХОДУНКИ",
+        "ПОСТІЛЬНІ КОМПЛЕКТИ",
+        "МАТРАЦИ ТА НАМАТРАЦНИКИ",
+        "КОВДРИ ТА ПЛЕДИ",
+        "ПОДУШКИ",
+        "ІГРАШКИ ТА КИЛИМКИ",
+        "РЮКЗАКИ ТА СЛІНГИ"
+      ],
+      "required": true
+    },
+    "brand": {
+      "type": "enumeration",
+      "enum": [
+        "Carrello",
+        "Lorelli",
+        "Tilly",
+        "BabyZz",
+        "NINOS"
+      ],
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "oldPrice": {
+      "type": "integer"
+    },
+    "about": {
+      "type": "text"
+    },
+    "table": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.test"
+    },
+    "bestSellers": {
+      "type": "boolean",
+      "default": false
+    },
+    "newArrivals": {
+      "type": "boolean",
+      "default": false
+    },
+    "articleCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.colors-cards"
     }
   }
 }

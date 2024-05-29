@@ -362,19 +362,101 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseCourse extends Schema.SingleType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    dollar: Attribute.Decimal;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestTest extends Schema.CollectionType {
   collectionName: 'tests';
   info: {
     singularName: 'test';
     pluralName: 'tests';
-    displayName: 'TEST';
+    displayName: 'CARDS';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    awdawd: Attribute.String;
-    dede: Attribute.Boolean;
+    title: Attribute.String;
+    gallery: Attribute.Media;
+    description: Attribute.Text;
+    articl: Attribute.String & Attribute.Required;
+    inStock: Attribute.Enumeration<
+      [
+        '\u0432 \u043D\u0430\u044F\u0432\u043D\u043E\u0441\u0442\u0456',
+        '\u043D\u0435\u043C\u0430\u0454 \u0432 \u043D\u0430\u044F\u0432\u043D\u043E\u0441\u0442\u0456',
+        '\u043E\u0447\u0456\u043A\u0443\u0454\u043C\u043E'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u0432 \u043D\u0430\u044F\u0432\u043D\u043E\u0441\u0442\u0456'>;
+    category: Attribute.Enumeration<
+      [
+        '\u0423\u041D\u0406\u0412\u0415\u0420\u0421\u0410\u041B\u042C\u041D\u0406 \u041A\u041E\u041B\u042F\u0421\u041A\u0418',
+        '\u041F\u0420\u041E\u0413\u0423\u041B\u042F\u041D\u041A\u041E\u0412\u0406 \u041A\u041E\u041B\u042F\u0421\u041A\u0418',
+        '\u0410\u0412\u0422\u041E\u041A\u0420\u0406\u0421\u041B\u0410',
+        '\u041A\u041E\u041B\u042F\u0421\u041A\u0418 \u0414\u041B\u042F \u0414\u0412\u0406\u0419\u041D\u0406',
+        '\u041B\u0406\u0416\u0415\u0427\u041A\u0410',
+        '\u041A\u041E\u041C\u041E\u0414\u0418-\u041F\u0415\u041B\u0415\u041D\u0410\u0422\u041E\u0420\u0418',
+        '\u041A\u0420\u0406\u0421\u041B\u0410-\u0413\u041E\u0419\u0414\u0410\u041B\u041A\u0418',
+        '\u041C\u0410\u041D\u0415\u0416\u0418',
+        '\u0421\u0422\u0406\u041B\u042C\u0427\u0418\u041A\u0418 \u0414\u041B\u042F \u0413\u041E\u0414\u0423\u0412\u0410\u041D\u041D\u042F',
+        '\u0414\u041E\u0429\u041E\u0412\u0418\u041A\u0418',
+        '\u041C\u041E\u0421\u041A\u0406\u0422\u041D\u0406 \u0421\u0406\u0422\u041A\u0418',
+        '\u0421\u0423\u041C\u041A\u0418 \u0422\u0410 \u0422\u0415\u0420\u041C\u041E\u0421\u0423\u041C\u041A\u0418',
+        '\u041A\u041E\u041D\u0412\u0415\u0420\u0422\u0418',
+        '\u041C\u0423\u0424\u0422\u0418',
+        '\u0412\u0415\u041B\u041E\u0421\u0418\u041F\u0415\u0414\u0418 \u0406 \u0421\u0410\u041C\u041E\u041A\u0410\u0422\u0418',
+        '\u0414\u0418\u0422\u042F\u0427\u0406 \u0415\u041B\u0415\u041A\u0422\u0420\u041E\u041C\u041E\u0411\u0406\u041B\u0406',
+        '\u0411\u0415\u0413\u041E\u0412\u0415\u041B\u0418',
+        '\u0425\u041E\u0414\u0423\u041D\u041A\u0418',
+        '\u041F\u041E\u0421\u0422\u0406\u041B\u042C\u041D\u0406 \u041A\u041E\u041C\u041F\u041B\u0415\u041A\u0422\u0418',
+        '\u041C\u0410\u0422\u0420\u0410\u0426\u0418 \u0422\u0410 \u041D\u0410\u041C\u0410\u0422\u0420\u0410\u0426\u041D\u0418\u041A\u0418',
+        '\u041A\u041E\u0412\u0414\u0420\u0418 \u0422\u0410 \u041F\u041B\u0415\u0414\u0418',
+        '\u041F\u041E\u0414\u0423\u0428\u041A\u0418',
+        '\u0406\u0413\u0420\u0410\u0428\u041A\u0418 \u0422\u0410 \u041A\u0418\u041B\u0418\u041C\u041A\u0418',
+        '\u0420\u042E\u041A\u0417\u0410\u041A\u0418 \u0422\u0410 \u0421\u041B\u0406\u041D\u0413\u0418'
+      ]
+    > &
+      Attribute.Required;
+    brand: Attribute.Enumeration<
+      ['Carrello', 'Lorelli', 'Tilly', 'BabyZz', 'NINOS']
+    > &
+      Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
+    oldPrice: Attribute.Integer;
+    about: Attribute.Text;
+    table: Attribute.Component<'elements.test', true>;
+    bestSellers: Attribute.Boolean & Attribute.DefaultTo<false>;
+    newArrivals: Attribute.Boolean & Attribute.DefaultTo<false>;
+    articleCards: Attribute.Component<'elements.colors-cards', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -613,6 +695,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -764,53 +893,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -821,15 +903,16 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::course.course': ApiCourseCourse;
       'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
     }
   }
 }
