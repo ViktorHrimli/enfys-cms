@@ -7,7 +7,9 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+      "export": "npm run strapi export -- --file data-export --key key",
+    "import": "yes Y | npm run strapi import -- -f data-export.tar.gz.enc --key key"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.23.1",

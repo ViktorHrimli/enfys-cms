@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "animations_lists",
+  "info": {
+    "singularName": "animations-list",
+    "pluralName": "animations-lists",
+    "displayName": "animationsList",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "animationsItem": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.animations"
+    }
+  }
+}

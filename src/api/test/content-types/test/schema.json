@@ -111,6 +111,29 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.colors-cards"
+    },
+    "link": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "icons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.icons"
+    },
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "КОЛЯСКИ ТА АВТОКРІСЛА",
+        "ДИТЯЧІ МЕБЛІ",
+        "АКСЕСУАРИ",
+        "ДИТЯЧИЙ ТРАНСПОРТ",
+        "ДИТЯЧИЙ ТЕКСТИЛЬ",
+        "ІГРАШКИ ТА КИЛИМКИ",
+        "РЮКЗАКИ ТА СЛІНГИ"
+      ],
+      "required": true
     }
   }
 }

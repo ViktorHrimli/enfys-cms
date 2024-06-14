@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_elements_universals",
+  "info": {
+    "displayName": "universal",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

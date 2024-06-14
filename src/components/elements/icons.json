@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_elements_icons",
+  "info": {
+    "displayName": "icons",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "free_shipping": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "guarantee": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "payment_in_installments": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "new": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "bestseller": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
